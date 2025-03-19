@@ -1,4 +1,4 @@
-package com.DummyAPIframework.Asserts;
+package com.DummyAPIframework.asserts;
 
 public class AssertActions {
 }
