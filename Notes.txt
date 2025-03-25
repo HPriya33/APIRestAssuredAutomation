@@ -1,0 +1,38 @@
+Copy
+Rest-Assured Objects and Their Uses
+
+1. RequestSpecification
+   - Purpose: Used to build and customize HTTP requests (e.g., headers, body, authentication).
+   - Example:
+       requestSpecification = RestAssured.given()
+           .baseUri("https://api.example.com")
+           .header("Content-Type", "application/json");
+
+2. AssertActions
+   - Purpose: Contains reusable methods for validating API responses (e.g., status codes, response bodies).
+   - Example:
+       assertActions.verifyStatusCode(response, 200);
+
+3. PayloadManager
+   - Purpose: Manages and generates request payloads (JSON/XML).
+   - Example:
+       String payload = payloadManager.createUserPayload("John", 30);
+
+4. JsonPath
+   - Purpose: Extracts and validates specific fields from a JSON response.
+   - Example:
+       jsonPath = response.jsonPath();
+       String name = jsonPath.getString("name");
+
+5. Response
+   - Purpose: Represents and accesses details of the HTTP response (e.g., status code, body).
+   - Example:
+       response = requestSpecification.when().get("/users/1");
+       int statusCode = response.getStatusCode();
+
+6. ValidatableResponse
+   - Purpose: Performs assertions on the response (e.g., status code, body, headers).
+   - Example:
+       validatableResponse = response.then()
+           .statusCode(200)
+           .body("name", equalTo("John"));
